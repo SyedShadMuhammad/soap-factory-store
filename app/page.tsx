@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 export interface Product {
   id: string;
   name: string;
-  category: 'surf' | 'dishwash' | 'soap';
+  category: 'surf' | 'dishwash' | 'soap'  | 'sanitizer';
   price: number;
   originalPrice?: number;
   rating: number;
@@ -32,8 +32,8 @@ export interface CartItem extends Product {
 const INITIAL_PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Farah Detergent Powder (Surf)',
-    category: 'surf',
+    name: 'Farah Hand Sanitizer',
+    category: 'sanitizer',
     price: 15000,          // 1 Dozen ki qeemat
     originalPrice: 17400,
     rating: 4.9,
@@ -45,8 +45,8 @@ const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '2',
-    name: 'Farah Detergent Powder (Surf)',
-    category: 'surf',
+    name: 'Farah Hand Sanitizer',
+    category: 'sanitizer',
     price: 15000,
     originalPrice: 17400,
     rating: 4.9,
@@ -58,7 +58,7 @@ const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '3',
-    name: 'Farah Hand Wash - Apple & Honey',
+    name: 'Farah Dishwash - Apple & Honey',
     category: 'dishwash',
     price: 4200,           // 1 Dozen ki qeemat
     originalPrice: 5040,
@@ -69,18 +69,95 @@ const INITIAL_PRODUCTS: Product[] = [
     packLabel: 'Dozen',
     unitsPerPack: 12,
   },
-  {
+   {
     id: '4',
+    name: 'Farah Dishwash - Apple & Honey',
+    category: 'dishwash',
+    price: 4200,           // 1 Dozen ki qeemat
+    originalPrice: 5040,
+    rating: 4.8,
+    reviewsCount: 95,
+    image: '/dishwasher1.jpeg',
+    size: '1 Litre Bottle',
+    packLabel: 'Dozen',
+    unitsPerPack: 12,
+  },
+   {
+    id: '5',
+    name: 'Farah Dishwash - Apple & Honey',
+    category: 'dishwash',
+    price: 4200,           // 1 Dozen ki qeemat
+    originalPrice: 5040,
+    rating: 4.8,
+    reviewsCount: 95,
+    image: '/dishwasher2.jpeg',
+    size: '1 Litre Bottle',
+    packLabel: 'Dozen',
+    unitsPerPack: 12,
+  },
+  {
+    id: '6',
     name: 'Farah Beauty Soap - Rose & Glow',
     category: 'soap',
     price: 4800,           // 1 Carton (48 pieces) ki qeemat
     originalPrice: 5760,
     rating: 4.9,
     reviewsCount: 110,
-    image: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80',
+    image: 'soap2.jpeg',
     size: 'Per Bar',
     packLabel: 'Carton',
     unitsPerPack: 48,
+  },
+   {
+    id: '7',
+    name: 'Farah Beauty Soap - Rose & Glow',
+    category: 'soap',
+    price: 4800,           // 1 Carton (48 pieces) ki qeemat
+    originalPrice: 5760,
+    rating: 4.9,
+    reviewsCount: 110,
+    image: 'soap1.jpeg',
+    size: 'Per Bar',
+    packLabel: 'Carton',
+    unitsPerPack: 48,
+  },  {
+    id: '8',
+    name: 'Farah  Surf Powder - 1 kg',
+    category: 'surf',
+    price: 5000,           // 1 Dozen (12 packs of 1 kg) ki qeemat
+    originalPrice: 5800,
+    rating: 4.9,
+    reviewsCount: 120,
+    image: '/surf1.jpeg',
+    size: '1 kg Pack',
+    packLabel: 'Dozen',
+    unitsPerPack: 12,
+  },
+    {
+    id: '9',
+    name: 'Farah Surf Powder - 1 kg',
+    category: 'surf',
+    price: 5000,           // 1 Dozen (12 packs of 1 kg) ki qeemat
+    originalPrice: 5800,
+    rating: 4.9,
+    reviewsCount: 120,
+    image: '/surf2.jpeg',
+    size: '1 kg Pack',
+    packLabel: 'Dozen',
+    unitsPerPack: 12,
+  },
+    {
+    id: '10',
+    name: 'Farah Surf Powder - 1 kg',
+    category: 'surf',
+    price: 5000,           // 1 Dozen (12 packs of 1 kg) ki qeemat
+    originalPrice: 5800,
+    rating: 4.9,
+    reviewsCount: 120,
+    image: '/surf3.jpeg',
+    size: '1 kg Pack',
+    packLabel: 'Dozen',
+    unitsPerPack: 12,
   },
 ];
 
@@ -125,18 +202,13 @@ const FAQS = [
 const ORDER_WHATSAPP_NUMBER = '923491224123'; // abhi test ke liye aap ka number, baad mein owner ka likhein
 
 const ROTATOR_IMAGES = [
-  // { src: '/soap-box.jpeg', name: 'Farah Soap Original Box' },
-  // // { src: '/mid.jpeg', name: 'Farah Factory Showcase' },
-  // { src: '/midLL.jpeg', name: 'Farah Beauty Range' },
+ 
   { src: '/dishwasher.jpeg', name: 'Farah Dishwash Liquid' },
    { src: '/sanitizer1%20(2).jpeg', name: 'Farah Hand Sanitizer Gel' },
   { src: '/mixpic.jpeg', name: 'Farah Products' },
   { src: '/sanitizer1%20(1).jpeg', name: 'Farah Hand Sanitizer' },
- 
+  { src: '/surf2.jpeg', name: 'Surf' },
 ];
-
-
-
 function ProductRotator({
   direction = 'vertical',
   speed = 63,
@@ -332,7 +404,7 @@ export default function SaudiFarahFactoryApp() {
         <div className="max-w-9xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,24rem)_1fr_minmax(0,24rem)] gap-10 items-center">
           {/* Rotating product pictures (left side) */}
           <div className="flex justify-center">
-            <ProductRotator direction="vertical" />
+            <ProductRotator direction="vertical" speed={30} />
           </div>
 
           {/* Company introduction (middle) */}
@@ -458,9 +530,10 @@ export default function SaudiFarahFactoryApp() {
           <div className="flex flex-wrap gap-2 bg-slate-50 p-1.5 rounded-2xl border border-slate-200 shadow-xs">
             {[
               { id: 'all', label: 'All Products' },
-              { id: 'surf', label: 'Detergent' },
-              { id: 'dishwash', label: 'Hand Wash' },
+              { id: 'surf', label: 'Surf' },
+              { id: 'dishwash', label: 'Detergent' },
               { id: 'soap', label: 'Beauty Soaps' },
+               { id: 'sanitizer', label: 'Sanitizer' },
             ].map(tab => (
               <button
                 key={tab.id}
