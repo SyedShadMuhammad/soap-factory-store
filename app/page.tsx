@@ -206,7 +206,7 @@ const FAQS = [
   },
 ];
 
-const ORDER_WHATSAPP_NUMBER = '923491224123'; // abhi test ke liye aap ka number, baad mein owner ka likhein
+const ORDER_WHATSAPP_NUMBER = '923406791749'; // abhi test ke liye aap ka number, baad mein owner ka likhein
 
 const ROTATOR_IMAGES = [
  
@@ -347,7 +347,7 @@ export default function SaudiFarahFactoryApp() {
       `Please confirm my order.`;
 
     // Owner ka WhatsApp number (agar badalna ho to sirf ye number badlein)
-        window.open(`https://wa.me/923491224123?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/923406791749?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleAddReview = (e: React.FormEvent) => {
