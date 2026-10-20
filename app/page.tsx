@@ -14,6 +14,8 @@ export interface Product {
   size: string;
   packLabel: 'Carton' | 'Dozen';
   unitsPerPack: number;
+  volume?: string;
+  
 }
 
 export interface Review {
@@ -34,77 +36,82 @@ const INITIAL_PRODUCTS: Product[] = [
     id: '1',
     name: 'Farah Hand Sanitizer',
     category: 'sanitizer',
-    price: 15000,          // 1 Dozen ki qeemat
+    price: 3000,          // 1 Dozen ki qeemat
     originalPrice: 17400,
     rating: 4.9,
     reviewsCount: 142,
     image: '/sanitizer1%20(1).jpeg',
-    size: '3 kg Pack',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
+    size: '500 ml',
+    packLabel: 'Carton',
+    unitsPerPack: 20,
+    volume: '',
   },
   {
     id: '2',
     name: 'Farah Hand Sanitizer',
     category: 'sanitizer',
-    price: 15000,
-    originalPrice: 17400,
+    price: 3000,
+    originalPrice: 130,
     rating: 4.9,
     reviewsCount: 142,
     image: '/sanitizer1%20(2).jpeg',
-    size: '3 kg Pack',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
+    size: '500ml',
+    packLabel: 'Carton',
+    unitsPerPack: 20,
+    volume: '1000ml',
   },
   {
     id: '3',
-    name: 'Farah Dishwash - Apple & Honey',
+    name: 'Farah Dishwash - Apple & Peach',
     category: 'dishwash',
     price: 4200,           // 1 Dozen ki qeemat
     originalPrice: 5040,
     rating: 4.8,
     reviewsCount: 95,
-    image: '/dishwasher.jpeg',
-    size: '1 Litre Bottle',
+    image: '/dishwasher3.jpeg',
+    size: '500 ml',
     packLabel: 'Dozen',
     unitsPerPack: 12,
+    volume: '',
   },
    {
     id: '4',
-    name: 'Farah Dishwash - Apple & Honey',
+    name: 'Farah Dishwash - Apple & Peach',
     category: 'dishwash',
-    price: 4200,           // 1 Dozen ki qeemat
-    originalPrice: 5040,
-    rating: 4.8,
-    reviewsCount: 95,
-    image: '/dishwasher1.jpeg',
-    size: '1 Litre Bottle',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
-  },
-   {
-    id: '5',
-    name: 'Farah Dishwash - Apple & Honey',
-    category: 'dishwash',
-    price: 4200,           // 1 Dozen ki qeemat
+    price: 3200,           // 1 Dozen ki qeemat
     originalPrice: 5040,
     rating: 4.8,
     reviewsCount: 95,
     image: '/dishwasher2.jpeg',
-    size: '1 Litre Bottle',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
+    size: '500 ml',
+    packLabel: 'Carton',
+    unitsPerPack: 20,
+    volume: '',
+  },
+   {
+    id: '5',
+    name: 'Farah Dishwash - Apple & Peach',
+    category: 'dishwash',
+    price: 2600,           // 1 Dozen ki qeemat
+    originalPrice: 5040,
+    rating: 4.8,
+    reviewsCount: 95,
+    image: '/dishwasher1.jpeg',
+    size: '1000 ml',
+    packLabel: 'Carton',
+    unitsPerPack: 20,
+    volume: '',
   },
   {
     id: '6',
     name: 'Farah Beauty Soap - Rose & Glow',
     category: 'soap',
-    price: 4800,           // 1 Carton (48 pieces) ki qeemat
+    price: 4040,           // 1 Carton (48 pieces) ki qeemat
     originalPrice: 5760,
     rating: 4.9,
     reviewsCount: 110,
     image: 'soap2.jpeg',
-    size: 'Per Bar',
+    size: '',
     packLabel: 'Carton',
     unitsPerPack: 48,
   },
@@ -112,52 +119,52 @@ const INITIAL_PRODUCTS: Product[] = [
     id: '7',
     name: 'Farah Beauty Soap - Rose & Glow',
     category: 'soap',
-    price: 4800,           // 1 Carton (48 pieces) ki qeemat
+    price: 4040,           // 1 Carton (48 pieces) ki qeemat
     originalPrice: 5760,
     rating: 4.9,
     reviewsCount: 110,
     image: 'soap1.jpeg',
-    size: 'Per Bar',
+    size: '',
     packLabel: 'Carton',
     unitsPerPack: 48,
   },  {
     id: '8',
-    name: 'Farah  Surf Powder - 1 kg',
+    name: 'Farah  Surf Powder ',
     category: 'surf',
-    price: 5000,           // 1 Dozen (12 packs of 1 kg) ki qeemat
+    price: 6240,           // 1 Dozen (12 packs of 1 kg) ki qeemat
     originalPrice: 5800,
     rating: 4.9,
     reviewsCount: 120,
     image: '/surf1.jpeg',
     size: '1 kg Pack',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
+    packLabel: 'Carton',
+    unitsPerPack: 24,
   },
     {
     id: '9',
-    name: 'Farah Surf Powder - 1 kg',
+    name: 'Farah Surf Powder ',
     category: 'surf',
-    price: 5000,           // 1 Dozen (12 packs of 1 kg) ki qeemat
+    price: 3120,           // 1 Dozen (12 packs of 1 kg) ki qeemat
     originalPrice: 5800,
     rating: 4.9,
     reviewsCount: 120,
     image: '/surf2.jpeg',
-    size: '1 kg Pack',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
+    size: 'half kg ',
+    packLabel: 'Carton',
+    unitsPerPack: 24,
   },
     {
     id: '10',
-    name: 'Farah Surf Powder - 1 kg',
+    name: 'Farah Surf Powder ',
     category: 'surf',
-    price: 5000,           // 1 Dozen (12 packs of 1 kg) ki qeemat
+    price: 6240,           // 1 Dozen (12 packs of 1 kg) ki qeemat
     originalPrice: 5800,
     rating: 4.9,
     reviewsCount: 120,
     image: '/surf3.jpeg',
-    size: '1 kg Pack',
-    packLabel: 'Dozen',
-    unitsPerPack: 12,
+    size: '1 kg',
+    packLabel: 'Carton',
+    unitsPerPack: 24,
   },
 ];
 
@@ -203,11 +210,15 @@ const ORDER_WHATSAPP_NUMBER = '923491224123'; // abhi test ke liye aap ka number
 
 const ROTATOR_IMAGES = [
  
-  { src: '/dishwasher.jpeg', name: 'Farah Dishwash Liquid' },
+ 
+  { src: '/dishwasher1.jpeg', name: 'dishwasher1' },
    { src: '/sanitizer1%20(2).jpeg', name: 'Farah Hand Sanitizer Gel' },
   { src: '/mixpic.jpeg', name: 'Farah Products' },
+   { src: '/dishwasher2.jpeg', name: 'Farah Dishwash Liquid' },
   { src: '/sanitizer1%20(1).jpeg', name: 'Farah Hand Sanitizer' },
+   { src: '/soap2.jpeg', name: 'soap2' },
   { src: '/surf2.jpeg', name: 'Surf' },
+   { src: '/soap1.jpeg', name: 'soap1' },
 ];
 function ProductRotator({
   direction = 'vertical',
@@ -379,7 +390,7 @@ export default function SaudiFarahFactoryApp() {
             </div>
             <div>
               <span className="text-xl font-black tracking-tight text-slate-900 block">Saudi Farah Factory</span>
-              <span className="text-xs text-emerald-700 font-bold uppercase tracking-wider">سعودیہ فرح فیکٹری • Selvia Town</span>
+              <span className="text-xs text-emerald-700 font-bold uppercase tracking-wider">سعودیہ فرح فیکٹری • Rawalpindi</span>
             </div>
           </div>
 
@@ -417,7 +428,7 @@ export default function SaudiFarahFactoryApp() {
               <span className="text-emerald-700">Cleaning & Skincare Products</span>
             </h1>
             <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
-              Saudi Farah Factory, Selvia Town, manufactures detergent powder, hand wash and beauty soaps for every home. We supply directly from the factory, so you get quality products at wholesale and retail rates, delivered across Pakistan.
+              Saudi Farah Factory, Chaklala Scheme 3, Rawalpindi, manufactures detergent powder, hand wash and beauty soaps for every home. We supply directly from the factory, so you get quality products at wholesale and retail rates, delivered across Pakistan.
             </p>
             <ul className="space-y-2 text-sm font-bold text-slate-800 inline-block text-left">
               <li className="flex items-start space-x-2">
@@ -591,6 +602,12 @@ export default function SaudiFarahFactoryApp() {
                   <p className="text-xs text-slate-500 font-medium">
                     About Rs. {Math.round(product.price / product.unitsPerPack)} per piece
                   </p>
+                  
+{(product.size || product.volume) && (
+  <p className="text-xs font-bold text-emerald-800 mt-1">
+    {product.size ? ` Size: ${product.size}` : ` size: ${product.volume}`}
+  </p>
+)}
                 </div>
 
                 <button
@@ -617,8 +634,8 @@ export default function SaudiFarahFactoryApp() {
           </div>
           <div>
             <h4 className="font-bold text-amber-300 mb-3 text-base">Factory & Contact Info</h4>
-            <p className="text-sm text-slate-200 mb-2 font-medium">WhatsApp / Sales: <strong>+92 334 9556570</strong></p>
-            <p className="text-sm text-slate-200 font-medium">Address: <strong>Plot 45, Industrial Zone, Selvia Town, Kawwak, Pakistan</strong></p>
+            <p className="text-sm text-slate-200 mb-2 font-medium">WhatsApp / Sales: <strong>+92 340 6791749</strong></p>
+            <p className="text-sm text-slate-200 font-medium">Address: <strong>Address: Farah Soap Pakki Gallee, Dhok chaudhrian, Chaklala Scheme 3 Rawalpindi, Pakistan</strong></p>
           </div>
           <div>
             <h4 className="font-bold text-amber-300 mb-3 text-base">Certification & Quality</h4>
